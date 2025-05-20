@@ -1,7 +1,6 @@
 package com.debotest.quickstart;
 
 import com.debotest.quickstart.services.ColourPrinter;
-import com.debotest.quickstart.services.imple.ColourPrinterImp;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

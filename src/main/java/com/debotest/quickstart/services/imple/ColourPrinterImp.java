@@ -6,20 +6,17 @@ import com.debotest.quickstart.services.GreenPrinter;
 import com.debotest.quickstart.services.RedPrinter;
 import org.springframework.stereotype.Component;
 
+@Component
+// Other stereotype annotations (which are technically specializations of @Component):
+//@Service – for service layer classes
+//@Repository – for DAO/repository classes (also adds persistence exception translation)
+//@Controller – for web controllers
+//@RestController – shorthand for @Controller + @ResponseBody
 
 public class ColourPrinterImp implements ColourPrinter {
     private RedPrinter redPrinter;
     private BluePrinter bluePrinter;
     private GreenPrinter greenPrinter;
-
-//    public ColourPrinterImp() {
-//        this.bluePrinter = new EnglishBluePrinter();
-//        this.greenPrinter = new EnglishGreenPrinter();
-//        this.redPrinter = new EnglishRedPrinter();
-//    }
-
-    // To swap out the implementations of the red, blue,and green we have change the implementation
-    // of our classes, change this to use Beans
 
     public ColourPrinterImp(RedPrinter redPrinter,GreenPrinter greenPrinter, BluePrinter bluePrinter){
         this.redPrinter = redPrinter;
