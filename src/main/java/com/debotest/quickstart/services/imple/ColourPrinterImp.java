@@ -4,6 +4,7 @@ import com.debotest.quickstart.services.BluePrinter;
 import com.debotest.quickstart.services.ColourPrinter;
 import com.debotest.quickstart.services.GreenPrinter;
 import com.debotest.quickstart.services.RedPrinter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +19,7 @@ public class ColourPrinterImp implements ColourPrinter {
     private BluePrinter bluePrinter;
     private GreenPrinter greenPrinter;
 
-    public ColourPrinterImp(RedPrinter redPrinter,GreenPrinter greenPrinter, BluePrinter bluePrinter){
+    public ColourPrinterImp(@Qualifier("spanishRedPrinter") RedPrinter redPrinter,@Qualifier("spanishGreenPrinter") GreenPrinter greenPrinter,@Qualifier("spanishBluePrinter") BluePrinter bluePrinter){
         this.redPrinter = redPrinter;
         this.bluePrinter = bluePrinter;
         this.greenPrinter= greenPrinter;
