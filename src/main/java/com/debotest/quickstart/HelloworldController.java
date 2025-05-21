@@ -1,5 +1,6 @@
 package com.debotest.quickstart;
 
+import com.debotest.quickstart.config.PizzaConfig;
 import com.debotest.quickstart.services.ColourPrinter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,9 @@ public class HelloworldController {
     @GetMapping(path = "/hello")
     public String helloWorld(){
 //        final ColourPrinter obj = new ColourPrinterImp();
-        return obj.print();
+        final PizzaConfig pizzaConfig = new PizzaConfig("tomato","mozzarella","thin");
+        String pizza = String.format("I want a pizza ,", pizzaConfig.getCrust(),pizzaConfig.getTopping(), pizzaConfig.getSauce());
+
+        return pizza;
     }
 }
