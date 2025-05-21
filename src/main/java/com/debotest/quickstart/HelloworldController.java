@@ -7,16 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloworldController {
-    private ColourPrinter obj ;
+//    private ColourPrinter obj ;
 
-    public HelloworldController(ColourPrinter obj){
-        this.obj = obj;
+    private PizzaConfig pizzaConfig;
+
+//    public HelloworldController(ColourPrinter obj){
+//        this.obj = obj;
+//    }
+
+    public HelloworldController(PizzaConfig pizzaConfig){
+        this.pizzaConfig=pizzaConfig;
     }
+
     @GetMapping(path = "/hello")
     public String helloWorld(){
 //        final ColourPrinter obj = new ColourPrinterImp();
-        final PizzaConfig pizzaConfig = new PizzaConfig("tomato","mozzarella","thin");
-        String pizza = String.format("I want a pizza ,", pizzaConfig.getCrust(),pizzaConfig.getTopping(), pizzaConfig.getSauce());
+
+        String pizza = String.format("I want a pizza with %s crust, %s topping, and %s sauce.",
+                pizzaConfig.getCrust(), pizzaConfig.getTopping(), pizzaConfig.getSauce());
 
         return pizza;
     }
